@@ -3,24 +3,21 @@ pipeline {
 
     stages {
 
-        stage('Pull Code') {
+        stage('Build') {
             steps {
-                echo 'Pulling code from GitHub...'
-                checkout scm
+                echo 'Building application'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Test') {
             steps {
-                echo 'Building Docker image...'
-                sh 'docker build -t docker-node-app:latest .'
+                echo 'Testing application'
             }
         }
 
-        stage('Display Image Details') {
+        stage('Deploy') {
             steps {
-                echo 'Docker image details:'
-                sh 'docker images docker-node-app'
+                echo 'Deploying application'
             }
         }
     }
